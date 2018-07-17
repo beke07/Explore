@@ -7,17 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Explore</title>
     <link rel="stylesheet" type="text/css" href="css/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" 
+          integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/animate-extend.js"></script>
+    <script src="js/images.js"></script>
+    <script src="js/keycodes.js"></script>
+    <script src="js/moves.js"></script>
+    <script src="js/site.js"></script>
 </head>
 
 <body>
-    <div class="fullscreen background-url-1 background-details init"></div>
-    <div class="fullscreen background-url-2 background-details change"></div>
+    <div class="fullscreen background-image background-details hidden"></div>
+    <div class="fullscreen background-image background-details shown"></div>
+    
+    <input id="ArrowUp" class="button button-up" type="button">
+    <input id="ArrowDown" class="button button-down" type="button">
+    <input id="ArrowLeft" class="button button-left" type="button">
+    <input id="ArrowRight" class="button button-right" type="button">
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="js/keycodes.js"></script>
-<script src="js/moves.js"></script>
-<script src="js/site.js"></script>
-
 </html>

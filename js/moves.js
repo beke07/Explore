@@ -1,24 +1,32 @@
-let MoveDown = function(){
-    let change = $(".change");
-    let init = $(".init");
+let Animation = function(animateDirection){
+    let fadeDirection;
+    if(animateDirection === keycodes.ArrowDown){
+        fadeDirection = "fadeOutUp";
+    }
+    else if(animateDirection === keycodes.ArrowUp){
+        fadeDirection = "fadeOutDown";
+    }
+    else if(animateDirection === keycodes.ArrowLeft){
+        fadeDirection = "fadeOutRight";
+    }
+    else if(animateDirection === keycodes.ArrowRight){
+        fadeDirection = "fadeOutLeft";
+    }
+
+    let hidden = $(".hidden");
+    let shown = $(".shown");
     
-    $(init).hide("blind", { direction:"up" }, function(){
-        $(change).addClass("init");
-        $(change).removeClass("change");
-    
-        $(init).addClass("change");
-        $(init).removeClass("init");
+    $(hidden).css('background-image', 'url(' + randomImageUrl(shown) + ')');
+    document.removeEventListener("keydown", keyDownListener);
+
+    $(shown).animateCss(fadeDirection, function(){
+        $(shown).removeClass("animated");
+        $(shown).removeClass(fadeDirection);
+        document.addEventListener("keydown", keyDownListener);      
     });
-};
 
-let MoveUp = function(){
-    console.log("Felfelé mozgás");
-};
-
-let MoveLeft = function(){
-    console.log("Balra mozgás");
-};
-
-let MoveRight = function(){
-    console.log("Jobbra mozgás");
-};
+    setTimeout(function(){
+        $(hidden).switchClass("hidden", "shown");
+        $(shown).switchClass("shown", "hidden");
+    }, 500);
+}

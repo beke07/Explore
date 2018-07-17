@@ -1,14 +1,15 @@
-document.addEventListener("keydown", function(event) {
-    if(event.key == keycodes.ArrowDown){
-        MoveDown();
-    }
-    else if(event.key == keycodes.ArrowUp){
-        MoveUp();
-    }
-    else if(event.key == keycodes.ArrowLeft){
-        MoveLeft();
-    }
-    else if(event.key == keycodes.ArrowRight){
-        MoveRight();
-    }
+let keyDownListener = function (event) {
+    Animation(event.key);
+}
+
+document.addEventListener("keydown", keyDownListener);
+
+$(function(){
+    $(".button").on("click", function () {
+        let that = $(this);
+        Animation($(this).attr("id"));
+        $(this).animateCss("wobble", function () {
+            $(that).removeClass("wobble");
+        });
+    });
 });
